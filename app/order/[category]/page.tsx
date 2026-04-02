@@ -1,4 +1,4 @@
-import ProductCard from "@/app/components/products/ProductCard";
+import { ProductCard } from "@/app/components";
 import prisma from "@/src/lib/prisma";
 
 async function getProducts(category: string) {
