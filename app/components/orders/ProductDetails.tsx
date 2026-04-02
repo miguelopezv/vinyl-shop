@@ -26,11 +26,11 @@ export default function ProductDetails({ item }: ProductDetailsProps) {
       <div className="space-y-4">
         <div className="flex justify-between items-start">
           <p className="text-xl font-bold">{item.name} </p>
-
           <button type="button" onClick={() => removeItem(item.id)}>
             <XCircleIcon className="text-red-600 h-8 w-8" />
           </button>
         </div>
+        <p className="text-m">{item.artist}</p>
         <p className="text-2xl text-amber-500 font-black">
           {formatCurrency(item.price)}
         </p>
