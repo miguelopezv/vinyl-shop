@@ -3,7 +3,7 @@
 import prisma from "@/src/lib/prisma";
 import { OrderSchema } from "@/src/schemas";
 
-export async function createOrder(data: unknown) {
+export default async function createOrder(data: unknown) {
   const result = OrderSchema.safeParse(data);
 
   if (!result.success) {
