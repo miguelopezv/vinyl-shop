@@ -14,6 +14,7 @@ import Heading from "./UI/Heading";
 
 import AdminSidebar from "./admin/AdminSidebar";
 import AdminRoute from "./admin/AdminRoute";
+import ProductPagination from "./products/ProductPagination";
 
 export {
   OrderSidebar,
@@ -29,4 +30,5 @@ export {
   Heading,
   AdminRoute,
   ProductTable,
+  ProductPagination,
 };
