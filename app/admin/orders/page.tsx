@@ -1,4 +1,4 @@
-import { Heading } from "@/app/components";
+import { Heading, OrderCard } from "@/app/components";
 import prisma from "@/src/lib/prisma";
 
 async function getPendingOrders() {
@@ -16,10 +16,18 @@ async function getPendingOrders() {
 
 export default async function OrdersPage() {
   const orders = await getPendingOrders();
-  console.log("🚀 ~ OrdersPage ~ orders:", orders);
   return (
     <>
       <Heading>Manage orders</Heading>
+      {orders.length ? (
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 mt-5">
+          {orders.map((order) => (
+            <OrderCard key={order.id} order={order} />
+          ))}
+        </div>
+      ) : (
+        <p>No pending orders.</p>
+      )}
     </>
   );
 }
