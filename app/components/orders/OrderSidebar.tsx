@@ -1,6 +1,6 @@
 import prisma from "@/src/lib/prisma";
-import CategoryIcon from "../ui/CategoryIcon";
-import Logo from "../ui/Logo";
+import CategoryIcon from "../UI/CategoryIcon";
+import Logo from "../UI/Logo";
 
 async function getCategories() {
   return await prisma.category.findMany();

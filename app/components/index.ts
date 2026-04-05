@@ -5,10 +5,10 @@ import ProductDetails from "./orders/ProductDetails";
 import AddProductButton from "./products/AddProductButton";
 import ProductCard from "./products/ProductCard";
 
-import CategoryIcon from "./ui/CategoryIcon";
-import ToastNotification from "./ui/ToastNotification";
-import Logo from "./ui/Logo";
-import Heading from "./ui/Heading";
+import CategoryIcon from "./UI/CategoryIcon";
+import ToastNotification from "./UI/ToastNotification";
+import Logo from "./UI/Logo";
+import Heading from "./UI/Heading";
 
 import AdminSidebar from "./admin/AdminSidebar";
 import AdminRoute from "./admin/AdminRoute";
