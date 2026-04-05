@@ -1,10 +1,6 @@
-import prisma from "@/src/lib/prisma";
+import { getCategories } from "@/prisma/queries";
 import CategoryIcon from "../UI/CategoryIcon";
 import Logo from "../UI/Logo";
-
-async function getCategories() {
-  return await prisma.category.findMany();
-}
 
 export default async function OrderSidebar() {
   const categories = await getCategories();

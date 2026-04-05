@@ -1,18 +1,11 @@
 "use server";
-
-import prisma from "@/src/lib/prisma";
+import { completeOrder } from "@/prisma/queries";
 import { revalidatePath } from "next/cache";
 
-export default async function completeOrder(formData: FormData) {
+export default async function completeOrderAction(formData: FormData) {
   const orderId = formData.get("order_id")!;
   try {
-    await prisma.order.update({
-      where: { id: +orderId },
-      data: {
-        status: true,
-        orderReadyAt: new Date(Date.now()),
-      },
-    });
+    await completeOrder(+orderId);
     revalidatePath("/admin/orders");
   } catch (error) {
     console.log("🚀 ~ completeOrder ~ error:", error);
