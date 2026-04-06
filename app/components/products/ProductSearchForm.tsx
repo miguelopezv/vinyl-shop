@@ -28,6 +28,7 @@ export default function ProductSearchForm() {
       <input
         type="submit"
         className="bg-indigo-400 p-2 uppercase text-white cursor-pointer"
+        value="Search"
       />
     </form>
   );
