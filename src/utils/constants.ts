@@ -5,6 +5,6 @@ export const PAGE_SIZE = 8;
 
 export const ADMIN_NAVIGATION = [
   { url: "/admin/orders", text: "Orders", blank: false },
-  { url: "/admin/products?page=1", text: "Products", blank: false },
-  { url: "/order/electronic", text: "Store", blank: true },
+  { url: "/admin/products", text: "Products", blank: false },
+  { url: "/order", text: "Store", blank: true },
 ];
