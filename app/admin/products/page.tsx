@@ -1,6 +1,12 @@
-import { Heading, ProductPagination, ProductTable } from "@/app/components";
+import {
+  Heading,
+  ProductPagination,
+  ProductSearchForm,
+  ProductTable,
+} from "@/app/components";
 import { getProducts, getProductsCount } from "@/prisma/queries";
 import { DEFAULT_PAGE, PAGE_SIZE } from "@/src/utils";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function ProductsPage({
@@ -29,6 +35,15 @@ export default async function ProductsPage({
   return (
     <>
       <Heading>Manage products</Heading>
+      <div className="flex flex-col lg:flex-row lg:justify-between gap-5">
+        <Link
+          className="bg-amber-400 w-full lg:w-auto text-xl px-10 py-3 text-center font-bold cursor-pointer"
+          href={`/admin/products/new`}
+        >
+          Add Product
+        </Link>
+        <ProductSearchForm />
+      </div>
       <ProductTable products={products} />
       <ProductPagination page={+page} totalPages={totalPages} />
     </>
