@@ -1,21 +1,8 @@
 import { Heading, OrderCard } from "@/app/components";
-import prisma from "@/src/lib/prisma";
-
-async function getPendingOrders() {
-  const orders = await prisma.order.findMany({
-    where: { status: false },
-    include: {
-      orderProducts: {
-        include: { product: true },
-      },
-    },
-  });
-
-  return orders;
-}
+import { findPendingOrders } from "@/prisma/queries";
 
 export default async function OrdersPage() {
-  const orders = await getPendingOrders();
+  const orders = await findPendingOrders();
   return (
     <>
       <Heading>Manage orders</Heading>

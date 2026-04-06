@@ -1,11 +1,5 @@
 import { ProductCard, Heading } from "@/app/components";
-import prisma from "@/src/lib/prisma";
-
-async function getProducts(category: string) {
-  return await prisma.product.findMany({
-    where: { category: { slug: category } },
-  });
-}
+import { findProductsByCategory } from "@/prisma/queries";
 
 export default async function OrderPage({
   params,
@@ -13,7 +7,7 @@ export default async function OrderPage({
   params: { category: string };
 }) {
   const { category } = await params;
-  const products = await getProducts(category);
+  const products = await findProductsByCategory(category);
   return (
     <>
       <Heading>Select your products</Heading>

@@ -7,6 +7,7 @@ type AddProductButtonProps = {
   product: Product;
 };
 
+// TODO: Disable button if quantity === MAX_ITEMS
 export default function AddProductButton({ product }: AddProductButtonProps) {
   const addToOrder = useStore((state) => state.addToOrder);
   return (
