@@ -1,6 +1,7 @@
 import {
   getProducts,
   findProductsByCategory,
+  findProductsByNameOrCategory,
   ProductsWithCategory,
   getProductsCount,
 } from "./products";
@@ -12,6 +13,7 @@ export {
   getProducts,
   getProductsCount,
   findProductsByCategory,
+  findProductsByNameOrCategory,
   createOrder,
   findPendingOrders,
   completeOrder,
