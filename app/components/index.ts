@@ -14,6 +14,8 @@ import Heading from "./UI/Heading";
 
 import AdminSidebar from "./admin/AdminSidebar";
 import AdminRoute from "./admin/AdminRoute";
+import AdminLoginForm from "./admin/AdminLoginForm";
+
 import ProductPagination from "./products/ProductPagination";
 import ProductSearchForm from "./products/ProductSearchForm";
 
@@ -33,4 +35,5 @@ export {
   ProductTable,
   ProductPagination,
   ProductSearchForm,
+  AdminLoginForm,
 };
