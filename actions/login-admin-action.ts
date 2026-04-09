@@ -16,11 +16,7 @@ export default async function loginAdminAction(
       body: JSON.stringify(result.data),
     },
   );
-  console.log(
-    "🚀 ~ loginAdminAction ~ `${process.env.BACKEND_URL}${process.env.API_VERSION}/auth/login`:",
-    `${process.env.BACKEND_URL}${process.env.API_VERSION}/auth/login`,
-  );
+
   const data = await response.json();
-  // Receive token and store
-  // Redirect("/admin/orders");
+  return { data, ok: response.ok };
 }

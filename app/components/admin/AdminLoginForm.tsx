@@ -1,10 +1,11 @@
 "use client";
 import { loginAdminAction } from "@/actions";
 import { AdminAuthSchema } from "@/src/schemas";
+import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
 export default function AdminLoginForm() {
-  const handleAdminLoginForm = (formData: FormData) => {
+  const handleAdminLoginForm = async (formData: FormData) => {
     const data = {
       email: formData.get("email"),
       password: formData.get("password"),
@@ -16,7 +17,14 @@ export default function AdminLoginForm() {
       });
       return;
     }
-    loginAdminAction(result);
+    const response = await loginAdminAction(result);
+
+    if (!response.ok) {
+      toast.error(response.data.message);
+      return;
+    }
+    toast.success("Login successful!");
+    redirect("/admin/orders");
   };
 
   return (
