@@ -1,5 +1,5 @@
 "use client";
-import { loginAdminAction } from "@/actions";
+import { loginAdmin } from "@/actions";
 import { AdminAuthSchema } from "@/src/schemas";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ export default function AdminLoginForm() {
       });
       return;
     }
-    const response = await loginAdminAction(result);
+    const response = await loginAdmin(result);
 
     if (!response.ok) {
       toast.error(response.data.message);
