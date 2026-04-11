@@ -4,14 +4,14 @@ A modern web application for browsing and purchasing vinyl records. Built with N
 
 ## Description
 
-Vinyl Shop is an e-commerce platform dedicated to vinyl enthusiasts. It allows users to explore a curated collection of vinyl records across various genres and categories, search for specific albums, and place orders seamlessly. The application includes an admin panel for managing products and orders.
+Vinyl Shop is an e-commerce platform dedicated to vinyl enthusiasts. It allows users to explore a curated collection of vinyl records (which is actually my vinyl collection) across various genres and categories, search for specific albums, and place orders seamlessly. The application includes an admin panel for managing products and orders.
 
 ## How It Works
 
 The application consists of a user-facing storefront and an admin dashboard:
 
 - **User Storefront**: Users can browse products by category, search for records, view product details, and complete purchases through a streamlined ordering process.
-- **Admin Panel**: Administrators can log in to manage the inventory, add new products, update existing ones, and monitor orders.
+- **Admin Panel**: Administrators can log in to manage the inventory, add new products, update existing ones, and monitor orders. Admin validation is handled by the `vinyl-shop-backend` project, which provides authentication services for secure access.
 
 The backend uses Prisma ORM with a database to store products, orders, and user data. The frontend is built with Next.js for server-side rendering and optimal performance.
 
