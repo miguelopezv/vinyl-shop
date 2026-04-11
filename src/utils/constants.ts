@@ -8,3 +8,5 @@ export const ADMIN_NAVIGATION = [
   { url: "/admin/products", text: "Products", blank: false },
   { url: "/order", text: "Store", blank: true },
 ];
+
+export const COOKIE_AUTH_KEY = "VS_AUTH_TOKEN";

@@ -1,6 +1,7 @@
 "use server";
 
 import { AdminAuth } from "@/src/schemas";
+import { COOKIE_AUTH_KEY } from "@/src/utils";
 import { cookies } from "next/headers";
 import z from "zod";
 
@@ -23,12 +24,13 @@ export default async function loginAdminAction(
 
     if (response.ok) {
       const cookieStore = await cookies();
-      cookieStore.set("VS_AUTH_TOKEN", data.token, {
+      cookieStore.set(COOKIE_AUTH_KEY, data.token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
         maxAge: 60 * 60 * 24 * 7, // 7 days
         path: "/",
+        priority: "high",
       });
     }
 
