@@ -34,17 +34,11 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }>) {
   const result = await validateTokenAndGetUser();
-  const headersList = await headers();
-  const currentPath = headersList.get("x-current-path");
 
   if (result.error) {
-    if (result.error === "expired") {
-      const cookieStore = await cookies();
-      cookieStore.delete(COOKIE_AUTH_KEY);
-    }
-    if (currentPath !== "/admin") {
-      redirect("/admin");
-    }
+    //   const cookieStore = await cookies();
+    //   cookieStore.delete(COOKIE_AUTH_KEY);
+    redirect("/admin");
   }
 
   return <>{children}</>;
