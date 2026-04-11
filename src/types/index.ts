@@ -1,3 +1,3 @@
-import { OrderItem, OrderWithProducts } from "./product";
+import { OrderItem, OrderWithProducts, CreateOrderData } from "./product";
 
-export type { OrderItem, OrderWithProducts };
+export type { OrderItem, OrderWithProducts, CreateOrderData };
