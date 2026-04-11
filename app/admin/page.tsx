@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { AdminLoginForm, Logo, ToastNotification } from "@/app/components";
 
 export default function page() {
