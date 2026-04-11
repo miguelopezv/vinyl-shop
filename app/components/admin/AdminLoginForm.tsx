@@ -24,7 +24,9 @@ export default function AdminLoginForm() {
       return;
     }
     toast.success("Login successful!");
-    redirect("/admin/orders");
+    setTimeout(() => {
+      redirect("/admin/orders");
+    }, 1000);
   };
 
   return (
