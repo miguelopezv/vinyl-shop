@@ -1,5 +1,5 @@
+import { Heading, Logo } from "@/app/components/";
 import Link from "next/link";
-import { Logo, Heading } from "@/app/components/";
 
 export default function Home() {
   return (

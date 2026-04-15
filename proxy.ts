@@ -1,18 +1,36 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import { verifyAdminToken } from "./src/lib/auth";
 import { COOKIE_AUTH_KEY } from "./src/utils";
 
-export function proxy(request: NextRequest) {
+const ADMIN_LOGIN_PATH = "/admin";
+
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get(COOKIE_AUTH_KEY)?.value;
   const { pathname } = request.nextUrl;
 
-  if (!token && pathname !== "/admin") {
-    const loginUrl = new URL("/admin", request.url);
-    loginUrl.searchParams.set("from", pathname);
-    return NextResponse.redirect(loginUrl);
+  if (!token) {
+    if (pathname !== ADMIN_LOGIN_PATH) {
+      return NextResponse.redirect(new URL(ADMIN_LOGIN_PATH, request.url));
+    }
+
+    return NextResponse.next();
   }
 
-  if (token && pathname === "/admin") {
+  try {
+    await verifyAdminToken(token);
+  } catch (error) {
+    const response =
+      pathname === ADMIN_LOGIN_PATH
+        ? NextResponse.next()
+        : NextResponse.redirect(new URL(ADMIN_LOGIN_PATH, request.url));
+
+    response.cookies.delete(COOKIE_AUTH_KEY);
+
+    return response;
+  }
+
+  if (pathname === ADMIN_LOGIN_PATH) {
     return NextResponse.redirect(new URL("/admin/orders", request.url));
   }
 
@@ -20,5 +38,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin", "/admin/:path*"],
 };

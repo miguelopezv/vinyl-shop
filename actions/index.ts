@@ -4,4 +4,4 @@ import loginAdmin from "./login-admin-action";
 import logoutAdmin from "./logout-admin-action";
 import SearchProduct from "./search-product-action";
 
-export { createOrder, completeOrder, SearchProduct, loginAdmin, logoutAdmin };
+export { completeOrder, createOrder, loginAdmin, logoutAdmin, SearchProduct };

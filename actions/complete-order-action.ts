@@ -8,6 +8,6 @@ export default async function completeOrderAction(formData: FormData) {
     await completeOrder(+orderId);
     revalidatePath("/admin/orders");
   } catch (error) {
-    console.log("🚀 ~ completeOrder ~ error:", error);
+    console.error("🚀 ~ completeOrderAction error:", error);
   }
 }
