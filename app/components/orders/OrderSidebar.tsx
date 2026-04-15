@@ -1,6 +1,6 @@
 import { getCategories } from "@/prisma/queries";
-import CategoryIcon from "../UI/CategoryIcon";
-import Logo from "../UI/Logo";
+import CategoryIcon from "../ui/CategoryIcon";
+import Logo from "../ui/Logo";
 
 export default async function OrderSidebar() {
   const categories = await getCategories();

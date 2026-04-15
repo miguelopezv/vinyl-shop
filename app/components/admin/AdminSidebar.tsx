@@ -1,5 +1,5 @@
 import { ADMIN_NAVIGATION } from "@/src/utils";
-import Logo from "../UI/Logo";
+import Logo from "../ui/Logo";
 import AdminRoute from "./AdminRoute";
 
 export default function AdminSidebar() {
