@@ -1,13 +1,13 @@
 import prisma from "@/src/lib/prisma";
+import { CreateOrderData } from "@/src/types/product";
 
-//TODO: Update type for this query
-export async function createOrder(data: any) {
-  prisma.order.create({
+export async function createOrder(data: CreateOrderData) {
+  return await prisma.order.create({
     data: {
       name: data.name,
       total: data.total,
       orderProducts: {
-        create: data.order.map((product: any) => ({
+        create: data.order.map((product: { id: number; quantity: number }) => ({
           productId: product.id,
           quantity: product.quantity,
         })),
@@ -30,7 +30,7 @@ export async function findPendingOrders() {
 }
 
 export async function completeOrder(orderId: number) {
-  prisma.order.update({
+  return await prisma.order.update({
     where: { id: orderId },
     data: {
       status: true,

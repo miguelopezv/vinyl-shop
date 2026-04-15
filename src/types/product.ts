@@ -10,3 +10,9 @@ export type OrderWithProducts = Order & {
     product: Product;
   })[];
 };
+
+export type CreateOrderData = {
+  name: string;
+  total: number;
+  order: { id: number; quantity: number }[];
+};
