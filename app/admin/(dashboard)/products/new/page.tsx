@@ -1,5 +1,10 @@
-import React from "react";
+import { AddProductForm, Heading } from "@/app/components";
 
 export default function NewProductPage() {
-  return <div>Create Product page</div>;
+  return (
+    <>
+      <Heading>Create Product</Heading>
+      <AddProductForm />
+    </>
+  );
 }
