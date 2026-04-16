@@ -13,6 +13,6 @@ export default async function createOrderAction(data: unknown) {
   try {
     await createOrder(result.data);
   } catch (error) {
-    console.log("🚀 ~ createOrder ~ error:", error);
+    console.error("🚀 ~ createOrderAction error:", error);
   }
 }

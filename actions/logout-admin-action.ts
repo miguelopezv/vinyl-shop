@@ -10,6 +10,6 @@ export default async function logoutAdminAction() {
     cookieStore.delete(COOKIE_AUTH_KEY);
     redirect("/");
   } catch (error) {
-    console.log("🚀 ~ logoutAdminAction ~ error:", error);
+    console.error("🚀 ~ logoutAdminAction error:", error);
   }
 }
