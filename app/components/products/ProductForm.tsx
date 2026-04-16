@@ -52,6 +52,7 @@ export default async function ProductForm() {
           name="categoryId"
         >
           <option value="">-- Select One --</option>
+          {/* TODO: Add Input to create new Category */}
           <option value="new">Add Category</option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
