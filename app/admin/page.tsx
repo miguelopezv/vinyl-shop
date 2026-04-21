@@ -7,14 +7,19 @@ import { redirect } from "next/navigation";
 export default async function page() {
   const cookieStore = await cookies();
   const token = cookieStore.get(COOKIE_AUTH_KEY)?.value;
+  let isTokenValid = false;
 
   if (token) {
     try {
       await verifyAdminToken(token);
-      redirect("/admin/orders");
+      isTokenValid = true;
     } catch (error) {
-      console.error("🚀 ~ page ~ error:", error);
+      console.error("🚀 ~ page ~ auth verification failed:", error);
     }
+  }
+
+  if (isTokenValid) {
+    redirect("/admin/orders");
   }
 
   return (
