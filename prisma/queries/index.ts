@@ -1,22 +1,24 @@
 import {
-  getProducts,
+  createProduct,
   findProductsByCategory,
   findProductsByNameOrCategory,
-  ProductsWithCategory,
+  getProducts,
   getProductsCount,
+  ProductsWithCategory,
 } from "./products";
 
-import { createOrder, findPendingOrders, completeOrder } from "./orders";
+import { completeOrder, createOrder, findPendingOrders } from "./orders";
 
 import { getCategories } from "./categories";
 export {
-  getProducts,
-  getProductsCount,
+  completeOrder,
+  createOrder,
+  createProduct,
+  findPendingOrders,
   findProductsByCategory,
   findProductsByNameOrCategory,
-  createOrder,
-  findPendingOrders,
-  completeOrder,
   getCategories,
+  getProducts,
+  getProductsCount,
 };
 export type { ProductsWithCategory };

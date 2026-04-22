@@ -1,5 +1,10 @@
+import type { Prisma } from "@/src/generated/prisma/client";
 import prisma from "@/src/lib/prisma";
 import { PAGE_SIZE } from "@/src/utils";
+
+export async function createProduct(data: Prisma.ProductCreateArgs["data"]) {
+  await prisma.product.create({ data });
+}
 
 export async function getProducts(page: number) {
   const skip = (page - 1) * PAGE_SIZE;

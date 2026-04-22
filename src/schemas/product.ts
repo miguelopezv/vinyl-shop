@@ -7,22 +7,21 @@ export const ProductSchema = z
       .string()
       .trim()
       .min(1, { message: "Artist name cannot be empty." }),
-    price: z
-      .string()
-      .trim()
-      .refine((value) => value !== "", { message: "Price cannot be empty." })
-      .transform((value) => parseFloat(value))
-      .pipe(z.number().positive("Price must be greater than 0")),
+    price: z.preprocess(
+      (value) => (typeof value === "number" ? String(value) : value),
+      z
+        .string()
+        .trim()
+        .min(1, { message: "Price cannot be empty." })
+        .transform((value) => parseFloat(value))
+        .pipe(z.number().positive("Price must be greater than 0")),
+    ),
     categoryMode: z.enum(["existing", "new"], {
       message: "Category mode must be 'existing' or 'new'.",
     }),
     categoryId: z.preprocess(
       (value) => (value === "" ? null : value),
-      z
-        .string()
-        .transform((value) => parseInt(value))
-        .pipe(z.number().positive())
-        .nullable(),
+      z.coerce.number().positive().nullable(),
     ),
     categoryName: z.preprocess(
       (value) => (value === "" ? null : value),
@@ -32,6 +31,7 @@ export const ProductSchema = z
         .min(1, { message: "Category name cannot be empty." })
         .nullable(),
     ),
+    image: z.string().trim().min(1, "Upload a cover image."),
   })
   .superRefine((data, ctx) => {
     if (data.categoryMode === "existing" && !data.categoryId) {
