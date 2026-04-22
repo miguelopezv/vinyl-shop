@@ -91,7 +91,7 @@ To access the admin panel:
 
 1. Navigate to `/admin` in your browser.
 2. Log in with the following credentials:
-   - Email: `admin@mail.com`
+   - Email: `adminTest@mail.com`
    - Password: `12345678`
 3. Once logged in, you can:
    - View the dashboard at `/admin`
