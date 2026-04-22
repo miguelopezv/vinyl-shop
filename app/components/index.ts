@@ -6,6 +6,7 @@ import ProductDetails from "./orders/ProductDetails";
 import AddProductButton from "./products/AddProductButton";
 import AddProductForm from "./products/AddProductForm";
 import ProductCard from "./products/ProductCard";
+import ProductForm from "./products/ProductForm";
 import ProductPagination from "./products/ProductPagination";
 import ProductSearchForm from "./products/ProductSearchForm";
 import ProductTable from "./products/ProductTable";
@@ -33,6 +34,7 @@ export {
   OrderSummary,
   ProductCard,
   ProductDetails,
+  ProductForm,
   ProductPagination,
   ProductSearchForm,
   ProductTable,
