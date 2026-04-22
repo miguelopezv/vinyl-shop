@@ -94,11 +94,11 @@ To access the admin panel:
    - Email: `admin@mail.com`
    - Password: `12345678`
 3. Once logged in, you can:
-   - View the dashboard at `/admin/(dashboard)`
-   - Manage products at `/admin/(dashboard)/products`
-   - View orders at `/admin/(dashboard)/orders`
-   - Add new products at `/admin/(dashboard)/products/new`
-   - Search products at `/admin/(dashboard)/products/search`
+   - View the dashboard at `/admin`
+   - Manage products at `/admin/products`
+   - View orders at `/admin/orders`
+   - Add new products at `/admin/products/new`
+   - Search products at `/admin/products/search`
 
 ## Tech Stack
 
