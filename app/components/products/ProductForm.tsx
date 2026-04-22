@@ -1,8 +1,13 @@
 import { getCategories } from "@/prisma/queries";
+import { Product } from "@/src/generated/prisma/client";
 import CategorySelect from "./CategorySelect";
 import ImageUpload from "./imageUpload";
 
-export default async function ProductForm() {
+type ProductFormProps = {
+  product?: Product;
+};
+
+export default async function ProductForm({ product }: ProductFormProps) {
   const categories = await getCategories();
 
   return (
@@ -17,6 +22,7 @@ export default async function ProductForm() {
           name="name"
           className="block w-full p-3 bg-slate-100"
           placeholder="Album Name"
+          defaultValue={product?.name}
         />
       </div>
       <div className="space-y-2">
@@ -29,6 +35,7 @@ export default async function ProductForm() {
           name="artist"
           className="block w-full p-3 bg-slate-100"
           placeholder="Artist"
+          defaultValue={product?.artist}
         />
       </div>
 
@@ -38,9 +45,13 @@ export default async function ProductForm() {
         </label>
         <input
           id="price"
+          // type="number"
           name="price"
           className="block w-full p-3 bg-slate-100"
           placeholder="Product Price"
+          // step="0.01"
+          // min="0"
+          defaultValue={product?.price ?? ""}
         />
       </div>
 
@@ -48,7 +59,10 @@ export default async function ProductForm() {
         <label className="text-slate-800" htmlFor="categoryId">
           Category:
         </label>
-        <CategorySelect categories={categories} />
+        <CategorySelect
+          categories={categories}
+          selectedCategoryId={product?.categoryId}
+        />
       </div>
 
       <div className="space-y-2">

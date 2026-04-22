@@ -5,6 +5,7 @@ import ProductDetails from "./orders/ProductDetails";
 
 import AddProductButton from "./products/AddProductButton";
 import AddProductForm from "./products/AddProductForm";
+import EditProductForm from "./products/EditProductForm";
 import ProductCard from "./products/ProductCard";
 import ProductForm from "./products/ProductForm";
 import ProductPagination from "./products/ProductPagination";
@@ -27,6 +28,7 @@ export {
   AdminRoute,
   AdminSidebar,
   CategoryIcon,
+  EditProductForm,
   Heading,
   Logo,
   OrderCard,

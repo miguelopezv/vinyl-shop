@@ -7,11 +7,15 @@ type CategoryOption = {
   name: string;
 };
 
+type CategorySelectProps = {
+  categories: CategoryOption[];
+  selectedCategoryId?: number;
+};
+
 export default function CategorySelect({
   categories,
-}: {
-  categories: CategoryOption[];
-}) {
+  selectedCategoryId,
+}: CategorySelectProps) {
   const [categoryMode, setCategoryMode] = useState("existing");
 
   return (
@@ -41,6 +45,7 @@ export default function CategorySelect({
             className="block w-full p-3 bg-slate-100"
             id="categoryId"
             name="categoryId"
+            defaultValue={selectedCategoryId ?? ""}
           >
             <option value="">-- Select One --</option>
             {categories.map((category) => (
