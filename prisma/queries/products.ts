@@ -18,6 +18,14 @@ export async function getProducts(page: number) {
   });
 }
 
+export async function getProductById(id: number) {
+  return await prisma.product.findUnique({
+    where: {
+      id,
+    },
+  });
+}
+
 export async function findProductsByCategory(category: string) {
   return await prisma.product.findMany({
     where: { category: { slug: category } },

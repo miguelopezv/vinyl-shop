@@ -2,6 +2,7 @@ import {
   createProduct,
   findProductsByCategory,
   findProductsByNameOrCategory,
+  getProductById,
   getProducts,
   getProductsCount,
   ProductsWithCategory,
@@ -18,6 +19,7 @@ export {
   findProductsByCategory,
   findProductsByNameOrCategory,
   getCategories,
+  getProductById,
   getProducts,
   getProductsCount,
 };
