@@ -1,5 +1,6 @@
 import { getCategories } from "@/prisma/queries";
 import CategorySelect from "./CategorySelect";
+import ImageUpload from "./imageUpload";
 
 export default async function ProductForm() {
   const categories = await getCategories();
@@ -48,6 +49,10 @@ export default async function ProductForm() {
           Category:
         </label>
         <CategorySelect categories={categories} />
+      </div>
+
+      <div className="space-y-2">
+        <ImageUpload />
       </div>
     </>
   );
