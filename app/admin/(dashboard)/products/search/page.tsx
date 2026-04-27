@@ -1,4 +1,4 @@
-import { SearchProduct } from "@/actions";
+import { searchProduct } from "@/actions";
 import { Heading, ProductSearchForm, ProductTable } from "@/app/components";
 
 export default async function SearchPage({
@@ -7,7 +7,7 @@ export default async function SearchPage({
   searchParams: { search: string };
 }) {
   const { search } = await searchParams;
-  const products = await SearchProduct(search);
+  const products = await searchProduct(search);
 
   return (
     <>
