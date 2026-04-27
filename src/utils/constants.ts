@@ -10,3 +10,6 @@ export const ADMIN_NAVIGATION = [
 ];
 
 export const COOKIE_AUTH_KEY = "VS_AUTH_TOKEN";
+
+export const PENDING_ORDERS_URL = "/admin/orders/api";
+export const COMPLETED_ORDERS_URL = "/orders/api";
