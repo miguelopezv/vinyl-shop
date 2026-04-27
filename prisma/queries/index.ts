@@ -6,6 +6,7 @@ import {
   getProducts,
   getProductsCount,
   ProductsWithCategory,
+  updateProduct,
 } from "./products";
 
 import { completeOrder, createOrder, findPendingOrders } from "./orders";
@@ -22,5 +23,6 @@ export {
   getProductById,
   getProducts,
   getProductsCount,
+  updateProduct,
 };
 export type { ProductsWithCategory };

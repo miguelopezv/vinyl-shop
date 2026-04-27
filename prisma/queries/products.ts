@@ -44,6 +44,16 @@ export async function findProductsByNameOrCategory(searchTerm: string) {
   });
 }
 
+export async function updateProduct(
+  data: Prisma.ProductUpdateArgs["data"],
+  id: number,
+) {
+  return await prisma.product.update({
+    where: { id },
+    data,
+  });
+}
+
 export async function getProductsCount() {
   return await prisma.product.count();
 }
