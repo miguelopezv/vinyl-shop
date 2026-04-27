@@ -1,3 +1,4 @@
+import LatestOrderItem from "./orders/LatestOrderItem";
 import OrderCard from "./orders/OrderCard";
 import OrderSidebar from "./orders/OrderSidebar";
 import OrderSummary from "./orders/OrderSummary";
@@ -28,6 +29,7 @@ export {
   AdminSidebar,
   CategoryIcon,
   Heading,
+  LatestOrderItem,
   Logo,
   OrderCard,
   OrderSidebar,
