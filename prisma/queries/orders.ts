@@ -29,6 +29,21 @@ export async function findPendingOrders() {
   return orders;
 }
 
+export async function findCompletedOrders() {
+  const orders = await prisma.order.findMany({
+    take: 5,
+    where: { orderReadyAt: { not: null } },
+    orderBy: { orderReadyAt: "desc" },
+    include: {
+      orderProducts: {
+        include: { product: true },
+      },
+    },
+  });
+
+  return orders;
+}
+
 export async function completeOrder(orderId: number) {
   return await prisma.order.update({
     where: { id: orderId },

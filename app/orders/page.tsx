@@ -1,13 +1,13 @@
 "use client";
 
-import OrderCard from "@/app/components/orders/OrderCard";
-import Heading from "@/app/components/ui/Heading";
+import LatestOrderItem from "@/app/components/orders/LatestOrderItem";
+import Logo from "@/app/components/ui/Logo";
 import { OrderWithProducts } from "@/src/types";
-import { PENDING_ORDERS_URL } from "@/src/utils";
+import { COMPLETED_ORDERS_URL } from "@/src/utils";
 import useSWR from "swr";
 
 export default function OrdersPage() {
-  const url = PENDING_ORDERS_URL;
+  const url = COMPLETED_ORDERS_URL;
   const fetcher = () =>
     fetch(url)
       .then((res) => res.json())
@@ -16,17 +16,18 @@ export default function OrdersPage() {
     refreshInterval: 120000,
     revalidateOnFocus: false,
   });
-
   if (isLoading) return "Loading...";
-
   if (data)
     return (
       <>
-        <Heading>Manage orders</Heading>
+        <h1 className="text-center mt-20 text-6xl font-black">
+          Orders Completed
+        </h1>
+        <Logo />
         {data.length ? (
-          <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 mt-5">
+          <div className="grid grid-cols-1 gap-5 max-w-5xl mx-auto mt-10">
             {data.map((order) => (
-              <OrderCard key={order.id} order={order} />
+              <LatestOrderItem order={order} key={order.id} />
             ))}
           </div>
         ) : (
