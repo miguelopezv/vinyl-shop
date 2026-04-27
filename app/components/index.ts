@@ -12,14 +12,15 @@ import ProductPagination from "./products/ProductPagination";
 import ProductSearchForm from "./products/ProductSearchForm";
 import ProductTable from "./products/ProductTable";
 
+import AdminLoginForm from "./admin/AdminLoginForm";
+import AdminRoute from "./admin/AdminRoute";
+import AdminSidebar from "./admin/AdminSidebar";
+
+import BackButton from "./ui/BackButton";
 import CategoryIcon from "./ui/CategoryIcon";
 import Heading from "./ui/Heading";
 import Logo from "./ui/Logo";
 import ToastNotification from "./ui/ToastNotification";
-
-import AdminLoginForm from "./admin/AdminLoginForm";
-import AdminRoute from "./admin/AdminRoute";
-import AdminSidebar from "./admin/AdminSidebar";
 
 export {
   AddProductButton,
@@ -27,6 +28,7 @@ export {
   AdminLoginForm,
   AdminRoute,
   AdminSidebar,
+  BackButton,
   CategoryIcon,
   EditProductForm,
   Heading,

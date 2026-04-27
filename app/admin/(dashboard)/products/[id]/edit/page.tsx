@@ -1,4 +1,9 @@
-import { EditProductForm, Heading, ProductForm } from "@/app/components";
+import {
+  BackButton,
+  EditProductForm,
+  Heading,
+  ProductForm,
+} from "@/app/components";
 import { getProductById } from "@/prisma/queries";
 import { notFound } from "next/navigation";
 
@@ -12,6 +17,7 @@ export default async function page({ params }: { params: { id: string } }) {
   return (
     <>
       <Heading>{`Edit: ${product.name}`}</Heading>
+      <BackButton />
       <EditProductForm>
         <ProductForm product={product} />
       </EditProductForm>
