@@ -6,10 +6,17 @@ import {
   MIN_ITEMS,
   PAGE_SIZE,
 } from "./constants";
-import { formatCurrency, getImagePath, slugify } from "./formattters";
+import {
+  buildProductData,
+  formatCurrency,
+  getImagePath,
+  productActionError,
+  slugify,
+} from "./formattters";
 
 export {
   ADMIN_NAVIGATION,
+  buildProductData,
   COOKIE_AUTH_KEY,
   DEFAULT_PAGE,
   formatCurrency,
@@ -17,5 +24,6 @@ export {
   MAX_ITEMS,
   MIN_ITEMS,
   PAGE_SIZE,
+  productActionError,
   slugify,
 };
