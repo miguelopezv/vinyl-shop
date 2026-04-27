@@ -45,12 +45,9 @@ export default async function ProductForm({ product }: ProductFormProps) {
         </label>
         <input
           id="price"
-          // type="number"
           name="price"
           className="block w-full p-3 bg-slate-100"
           placeholder="Product Price"
-          // step="0.01"
-          // min="0"
           defaultValue={product?.price ?? ""}
         />
       </div>
@@ -66,7 +63,7 @@ export default async function ProductForm({ product }: ProductFormProps) {
       </div>
 
       <div className="space-y-2">
-        <ImageUpload />
+        <ImageUpload image={product?.image} />
       </div>
     </>
   );

@@ -1,8 +1,8 @@
 "use client";
 
-import { createProduct } from "@/actions";
+import { updateProduct } from "@/actions";
 import { ProductSchema } from "@/src/schemas";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { FormEvent, useRef } from "react";
 import { toast } from "react-toastify";
 
@@ -13,6 +13,8 @@ export default function EditProductForm({
 }) {
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
+  const params = useParams();
+  const id = +params.id!;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,13 +36,12 @@ export default function EditProductForm({
       result.error.issues.forEach((error) => toast.error(error.message));
       return;
     }
-
-    const response = await createProduct(result.data);
+    const response = await updateProduct(result.data, id);
     if (response?.errors) {
       response.errors.forEach((error) => toast.error(error.message));
       return;
     }
-    toast.success("Product created");
+    toast.success("Product Updated");
     formRef.current?.reset();
     router.push("/admin/products");
   };
